@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -12,14 +12,8 @@ def check_api_key():
 
 @app.route("/", methods=["GET"])
 def hello():
-    return jsonify({"message": "Hello, World!", "source": "Flask on Vercel"})
+    return jsonify({"message": "Hello, World!", "source": "Flask on Render"})
 
 @app.route("/ping", methods=["GET"])
 def ping():
     return jsonify({"ok": True, "path": "ping"})
-
-# Expose WSGI app for Vercel via serverless-wsgi
-# Vercel will call this handler
-def handler(environ, start_response):
-    from werkzeug.middleware.dispatcher import DispatcherMiddleware
-    return app.wsgi_app(environ, start_response)
