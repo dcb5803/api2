@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-API_KEY = "MY_SECRET_KEY_123"
+API_KEY = "MY_SECRET_KEY_123"  # hardcoded key
 
 @app.before_request
 def check_api_key():
@@ -12,7 +12,7 @@ def check_api_key():
 
 @app.route("/", methods=["GET"])
 def hello():
-    return jsonify({"message": "Hello, World!", "source": "Flask on Render"})
+    return jsonify({"message": "Hello, World!", "source": "Flask on Railway"})
 
 @app.route("/ping", methods=["GET"])
 def ping():
