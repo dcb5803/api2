@@ -12,7 +12,7 @@ def check_api_key():
 
 @app.route("/", methods=["GET"])
 def hello():
-    return jsonify({"message": "Hello, World!", "source": "Flask on Railway"})
+    return jsonify({"message": "Hello, World!", "source": "Flask on PythonAnywhere"})
 
 @app.route("/ping", methods=["GET"])
 def ping():
